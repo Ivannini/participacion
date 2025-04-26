@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('alumno_seccion', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('alumno_id') ->constrained('alumnos')->onDelete('cascade');
+            $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');
 
-            // Linea anterior falla por el anterior de la tabla en español, el sistema piensa que la tabla se llama alumnos
+            // $table->foreignId('seccion_id')->constrained('secciones')->onDelete('cascade');
+            // Linea anterior falla por el nombre de la tabla en español, el sistema piensa que será seccions
 
             $table->unsignedBigInteger('seccion_id');
             $table->foreign('seccion_id')->references('id')->on('secciones');
-
         });
     }
 

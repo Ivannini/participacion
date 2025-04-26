@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            // nombre, correo, codigo
-            $table->timestamps();
+            $table->string('nombre');
+            $table->string('correo')->unique();
+            $table->string('codigo')->unique();
         });
     }
 
